@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess</title>
+    <link th:href="@{/guesspage.css}" rel="stylesheet">
+</head>
+<body>
+<p th:text="${random}"></p>
+<div class="container">
+    <h2>Make a guess</h2>
+    <form action="/guess/" method="post">
+        <input type="text" name="guess">
+        <input type="submit" value="guess">
+    </form>
+    <br/>
+    <p class="message" th:text="${message}"></p>
+    <table>
+        <tr>
+            <th>Previous guesses</th>
+        </tr>
+        <tr th:each="guess:${previousGuess}">
+            <td th:text="${guess}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
